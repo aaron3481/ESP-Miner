@@ -5,6 +5,7 @@
 #include "vcore.h"
 #include "adc.h"
 #include "DS4432U.h"
+#include "TPS546.h"
 
 // DS4432U Transfer function constants for Bitaxe board
 #define BITAXE_VFB 0.6
@@ -17,7 +18,10 @@
 
 static const char *TAG = "vcore.c";
 
-void VCORE_init(GlobalState * global_state) {
+void VCORE_init(GlobalState global_state) {
+    if (global_state.device_model == DEVICE_HEX) {
+        TPS546_init();
+    }
     ADC_init();
 }
 

@@ -19,6 +19,7 @@ typedef enum
     DEVICE_MAX = 0,
     DEVICE_ULTRA,
     DEVICE_SUPRA,
+    DEVICE_HEX,
 } DeviceModel;
 
 typedef enum
