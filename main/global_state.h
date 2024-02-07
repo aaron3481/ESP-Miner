@@ -42,6 +42,7 @@ typedef struct
 {
     DeviceModel device_model;
     char * device_model_str;
+    int board_version;
     AsicModel asic_model;
     char * asic_model_str;
     uint16_t asic_count;
@@ -73,3 +74,4 @@ typedef struct
 } GlobalState;
 
 #endif /* GLOBAL_STATE_H_ */
+
