@@ -118,7 +118,10 @@ void STRATUM_V1_parse(StratumApiV1Message * message, const char * stratum_json)
             result = MINING_SET_DIFFICULTY;
         } else if (strcmp("mining.set_version_mask", method_json->valuestring) == 0) {
             result = MINING_SET_VERSION_MASK;
+        }else if (strcmp("client.reconnect", method_json->valuestring) == 0){//TODO: Add MRR client.reconnect support here
+            result = CLIENT_RECONNECT;
         }
+        
     } else {
         // parse results
         cJSON * result_json = cJSON_GetObjectItem(json, "result");
