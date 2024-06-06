@@ -166,7 +166,7 @@ void POWER_MANAGEMENT_task(void * pvParameters)
         }
 
         if (auto_fan_speed == 1) {
-            automatic_fan_speed(power_management->chip_temp);
+            power_management->fan_percentage = (int)automatic_fan_speed(power_management->chip_temp);
         } else {
             EMC2101_set_fan_speed((float) nvs_config_get_u16(NVS_CONFIG_FAN_SPEED, 100) / 100);
         }
@@ -188,11 +188,11 @@ void POWER_MANAGEMENT_task(void * pvParameters)
 
 // Set the fan speed between 20% min and 100% max based on chip temperature as input.
 // The fan speed increases from 20% to 100% proportionally to the temperature increase from 50 and THROTTLE_TEMP
-static void automatic_fan_speed(float chip_temp)
+static double automatic_fan_speed(float chip_temp)
 {
     double result = 0.0;
     double min_temp = 50.0;
-    double min_fan_speed = 20.0;
+    double min_fan_speed = 35.0;
 
     if (chip_temp < min_temp) {
         result = min_fan_speed;
@@ -205,4 +205,5 @@ static void automatic_fan_speed(float chip_temp)
     }
 
     EMC2101_set_fan_speed((float) result / 100);
+    return result;
 }
