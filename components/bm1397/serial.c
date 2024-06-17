@@ -104,12 +104,13 @@ void SERIAL_clear_buffer(void)
  void *SERIAL_rx_aa55(uint8_t *data,const int length) {
      for(int len=0; len < length;) {
          // wait for a response, wait time is pretty arbitrary
-         int received = SERIAL_rx(data+len, length-len, 60000);
+         int received = SERIAL_rx(data+len, length-len, 20);
          if (received < 0) {
              ESP_LOGI(TAG, "Error in serial RX");
              return NULL;
          } else if (received == 0) {
              // Didn't find a solution, restart and try again
+            //ESP_LOGI(TAG, "Serial RX = 0;");
              return NULL;
          }
 
