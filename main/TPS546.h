@@ -38,7 +38,8 @@
   /* iout current */
 #define TPS546_INIT_IOUT_OC_WARN_LIMIT  25.00 /* A */
 #define TPS546_INIT_IOUT_OC_FAULT_LIMIT 30.00 /* A */
-#define TPS546_INIT_IOUT_OC_FAULT_RESPONSE 0xC0  /* shut down, no retries */
+//#define TPS546_INIT_IOUT_OC_FAULT_RESPONSE 0xC0  /* shut down, no retries */
+#define TPS546_INIT_IOUT_OC_FAULT_RESPONSE 0x00  /* shut down, no retries */
 
   /* temperature */
 // It is better to set the temperature warn limit for TPS546 more higher than Ultra 
