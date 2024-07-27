@@ -97,6 +97,7 @@ static void _init_system(GlobalState * global_state, SystemModule * module)
             break;
         case 302:  /* HEX */
         case 303:
+        case 304:
             // Initialize the core voltage regulator
             TPS546_init();
             // Fan config - Hex has two fans
