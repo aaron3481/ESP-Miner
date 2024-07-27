@@ -1,0 +1,1 @@
+'E:\esp-idf\components\nvs_flash\nvs_partition_generator\nvs_partition_gen.py' generate .\config303.cvs config.bin 0x6000

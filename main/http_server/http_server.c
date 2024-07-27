@@ -649,7 +649,7 @@ esp_err_t start_rest_server(void * pvParameters)
 
     // Start the DNS server that will redirect all queries to the softAP IP
 
-    dns_server_config_t dns_config = DNS_SERVER_CONFIG_SINGLE("*" /* all A queries */, "WIFI_AP_DEF" /* softAP netif ID */);
+        dns_server_config_t dns_config = DNS_SERVER_CONFIG_SINGLE("*" /* all A queries */, "WIFI_AP_DEF" /* softAP netif ID */);
     start_dns_server(&dns_config);
 
     return ESP_OK;

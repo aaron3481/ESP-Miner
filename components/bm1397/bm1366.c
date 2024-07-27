@@ -465,7 +465,7 @@ static uint8_t _send_init(uint64_t frequency)
     unsigned char init6[7] = {0x55, 0xAA, 0x53, 0x05, 0x00, 0x00, 0x03};
     _send_simple(init6, 7);
 
-    for (int i = 0; i < chip_counter; i++) {
+    for (int i = 0; i < 6; i++) {
         unsigned char address[2] = {i * 2, 0x00};
         _send_BM1366((TYPE_CMD | GROUP_SINGLE | CMD_SETADDRESS), address, 2, true);
     }
